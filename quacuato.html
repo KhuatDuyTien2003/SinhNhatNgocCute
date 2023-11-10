@@ -1,0 +1,323 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link rel="stylesheet" href="canvas.css" />
+  <link rel="stylesheet" href="present.css" />
+  <link rel="stylesheet" href="card.css" />
+  <link rel="stylesheet" href="hh.css" />
+  <link type="text/css" rel="stylesheet" href="./css/default.css">
+  <link rel="stylesheet" href="./css/style.css">
+  <script type="text/javascript" src="./js/jquery.min.js"></script>
+  <script type="text/javascript" src="./js/jscex.min.js"></script>
+  <script type="text/javascript" src="./js/jscex-parser.js"></script>
+  <script type="text/javascript" src="./js/jscex-jit.js"></script>
+  <script type="text/javascript" src="./js/jscex-builderbase.min.js"></script>
+  <script type="text/javascript" src="./js/jscex-async.min.js"></script>
+  <script type="text/javascript" src="./js/jscex-async-powerpack.min.js"></script>
+  <script type="text/javascript" src="./js/functions.js" charset="utf-8"></script>
+  <script type="text/javascript" src="./js/love.js" charset="utf-8"></script>
+  <style type="text/css"></style>
+  <link rel="stylesheet" href="./css/style.css" />
+  <style>
+    @-webkit-keyframes snowflakes-fall {
+      0% {
+        top: -10%
+      }
+
+      100% {
+        top: 100%
+      }
+    }
+
+    @-webkit-keyframes snowflakes-shake {
+
+      0%,
+      100% {
+        -webkit-transform: translateX(0);
+        transform: translateX(0)
+      }
+
+      50% {
+        -webkit-transform: translateX(80px);
+        transform: translateX(80px)
+      }
+    }
+
+    @keyframes snowflakes-fall {
+      0% {
+        top: -10%
+      }
+
+      100% {
+        top: 100%
+      }
+    }
+
+    @keyframes snowflakes-shake {
+
+      0%,
+      100% {
+        transform: translateX(0)
+      }
+
+      50% {
+        transform: translateX(80px)
+      }
+    }
+
+    .snowflake {
+      color: #fff;
+      font-size: 1em;
+      font-family: Arial, sans-serif;
+
+      position: fixed;
+      top: -10%;
+      z-index: 9999;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      cursor: default;
+      -webkit-animation-name: snowflakes-fall, snowflakes-shake;
+      -webkit-animation-duration: 10s, 3s;
+      -webkit-animation-timing-function: linear, ease-in-out;
+      -webkit-animation-iteration-count: infinite, infinite;
+      -webkit-animation-play-state: running, running;
+      animation-name: snowflakes-fall, snowflakes-shake;
+      animation-duration: 10s, 3s;
+      animation-timing-function: linear, ease-in-out;
+      animation-iteration-count: infinite, infinite;
+      animation-play-state: running, running;
+    }
+
+    .snowflake:nth-of-type(0) {
+      left: 1%;
+      -webkit-animation-delay: 0s, 0s;
+      animation-delay: 0s, 0s
+    }
+
+    .snowflake:nth-of-type(1) {
+      left: 10%;
+      -webkit-animation-delay: 1s, 1s;
+      animation-delay: 1s, 1s
+    }
+
+    .snowflake:nth-of-type(2) {
+      left: 20%;
+      -webkit-animation-delay: 6s, .5s;
+      animation-delay: 6s, .5s
+    }
+
+    .snowflake:nth-of-type(3) {
+      left: 30%;
+      -webkit-animation-delay: 4s, 2s;
+      animation-delay: 4s, 2s
+    }
+
+    .snowflake:nth-of-type(4) {
+      left: 40%;
+      -webkit-animation-delay: 2s, 2s;
+      animation-delay: 2s, 2s
+    }
+
+    .snowflake:nth-of-type(5) {
+      left: 50%;
+      -webkit-animation-delay: 8s, 3s;
+      animation-delay: 8s, 3s
+    }
+
+    .snowflake:nth-of-type(6) {
+      left: 60%;
+      -webkit-animation-delay: 6s, 2s;
+      animation-delay: 6s, 2s
+    }
+
+    .snowflake:nth-of-type(7) {
+      left: 70%;
+      -webkit-animation-delay: 2.5s, 1s;
+      animation-delay: 2.5s, 1s
+    }
+
+    .snowflake:nth-of-type(8) {
+      left: 80%;
+      -webkit-animation-delay: 1s, 0s;
+      animation-delay: 1s, 0s
+    }
+
+    .snowflake:nth-of-type(9) {
+      left: 90%;
+      -webkit-animation-delay: 3s, 1.5s;
+      animation-delay: 3s, 1.5s
+    }
+
+    .snowflake:nth-of-type(10) {
+      left: 25%;
+      -webkit-animation-delay: 2s, 0s;
+      animation-delay: 2s, 0s
+    }
+
+    .snowflake:nth-of-type(11) {
+      left: 65%;
+      -webkit-animation-delay: 4s, 2.5s;
+      animation-delay: 4s, 2.5s
+    }
+  </style>
+  <script src="jquery.js"></script>
+</head>
+
+<body>
+  <div class="buttons">
+    <!-- Chữ ở menu bạn có thể sửa lại theo ý của bạn -->
+    <a href="index.html" class="btn btn-bir">Sinh nhật</a>
+    <a href="quacuato.html" class="btn btn-timeline">Quà của tớ</a>
+    <a href="gallery/anhcuacau.html" class="btn btn-gallery">Ảnh kĩ niệm</a>
+  </div>
+  <div class="parent">
+
+    <canvas id="canvas"></canvas>
+    <section class="above-fold">
+      <div class="wrap-present" id="wrap-present">
+        <div class="present-box" id="present">
+          <div class="present">
+            <div class="img-wrap" id="present-image"></div>
+          </div>
+          <div class="side front"></div>
+          <div class="side back"></div>
+          <div class="side left"></div>
+          <div class="side right"></div>
+          <div class="side top">
+            <span class="to">
+              <span class="name" id="nametag"> </span>
+            </span>
+          </div>
+          <div class="side bottom"></div>
+        </div>
+      </div>
+
+      <div class="hidden" id="dieuuoc">
+        <h1 class="h1">Điều ước Tiến sẽ thực hiện cho cậu</h1>
+        <input type="text" onkeydown="wordRun()" value="" placeholder="Mời cậu nhập điều ước" id="input-uoc">
+        <button id="submit" onclick="Suceed()">Gửi điều ước</button>
+        <button id="cancel" onclick="changePosision()">Không gửi</button>
+      </div>
+      <div class="hidden" id="hidden">
+        <h1>Tiến sẽ thực hiện điều ước giúp cậu <br>
+        </h1>
+      </div>
+    </section>
+
+    <div id="card">
+      <h4 class="title-card">💘little coder💘</h4>
+
+      <img src="ngocdep11.jpg" class="honey" />
+
+      <h4 class="content-card">
+        Happy Birthday Make A Wish. Dear brother, hope you receive everything
+        you wish for this year. You deserve the best! Thanks for being such a
+        great brother.💘
+      </h4>
+    </div>
+    <div id="card1">
+      <img src="/img/ngocdep7.jpg" class="img" />
+    </div>
+    <div id="card2">
+      <img src="/img/ngocdep9.jpg" class="img" />
+    </div>
+    <div id="card3">
+      <img src="/img/ngocdep5.jpg" class="img" />
+    </div>
+
+  </div>
+  <div class="snowflakes" aria-hidden="true">
+    <div class="snowflake">❤️</div>
+    <div class="snowflake">❤️</div>
+    <div class="snowflake">❤️</div>
+    <div class="snowflake">❤️</div>
+    <div class="snowflake">❤️</div>
+    <div class="snowflake">❤️</div>
+    <div class="snowflake">❤️</div>
+    <div class="snowflake">❤️</div>
+    <div class="snowflake">❤️</div>
+    <div class="snowflake">❤️</div>
+    <div class="snowflake">❤️</div>
+    <div class="snowflake">❤️</div>
+    <div class="snowflake">❤️</div>
+    <div class="snowflake">❤️</div>
+    <div class="snowflake">❤️</div>
+    <div class="snowflake">❤️</div>
+    <div class="snowflake">❤️</div>
+    <div class="snowflake">❤️</div>
+    <div class="snowflake">❤️</div>
+    <div class="snowflake">❤️</div>
+    <div class="snowflake">❤️</div>
+    <div class="snowflake">❤️</div>
+    <div class="snowflake">❤️</div>
+    <div class="snowflake">❤️</div>
+    <div class="snowflake">❤️</div>
+    <div class="snowflake">❤️</div>
+    <div class="snowflake">❤️</div>
+    <div class="snowflake">❤️</div>
+    <div class="snowflake">❤️</div>
+    <div class="snowflake">❤️</div>
+    <div class="snowflake">❤️</div>
+    <div class="snowflake">❤️</div>
+    <div class="snowflake">❤️</div>
+    <div class="snowflake">❤️</div>
+    <div class="snowflake">❤️</div>
+    <div class="snowflake">❤️</div>
+    <div class="snowflake">❤️</div>
+    <div class="snowflake">❤️</div>
+    <div class="snowflake">❤️</div>
+    <div class="snowflake">❤️</div>
+    <div class="snowflake">❤️</div>
+    <div class="snowflake">❤️</div>
+    <div class="snowflake">❤️</div>
+    <div class="snowflake">❤️</div>
+    <div class="snowflake">❤️</div>
+    <div class="snowflake">❤️</div>
+    <div class="snowflake">❤️</div>
+    <div class="snowflake">❤️</div>
+    <div class="snowflake">❤️</div>
+    <div class="snowflake">❤️</div>
+    <div class="snowflake">❤️</div>
+    <div class="snowflake">❤️</div>
+    <div class="snowflake">❤️</div>
+    <div class="snowflake">❤️</div>
+    <div class="snowflake">❤️</div>
+    <div class="snowflake">❤️</div>
+    <div class="snowflake">❤️</div>
+    <div class="snowflake">❤️</div>
+    <div class="snowflake">❤️</div>
+    <div class="snowflake">❤️</div>
+    <div class="snowflake">❤️</div>
+    <div class="snowflake">❤️</div>
+    <div class="snowflake">❤️</div>
+    <div class="snowflake">❤️</div>
+    <div class="snowflake">❤️</div>
+    <div class="snowflake">❤️</div>
+    <div class="snowflake">❤️</div>
+    <div class="snowflake">❤️</div>
+    <div class="snowflake">❤️</div>
+    <div class="snowflake">❤️</div>
+    <div class="snowflake">❤️</div>
+    <div class="snowflake">❤️</div>
+  </div>
+
+  // CSS
+
+  <audio autoplay loop id="playAudio">
+    <source src="/music/music.mp3">
+  </audio>
+</body>
+<script src="config.js"></script>
+<script src="canvas.js"></script>
+<script src="present.js"></script>
+<script>
+
+</script>
+
+</html>

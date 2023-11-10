@@ -1,0 +1,167 @@
+   @font-face {
+       font-family: newFont;
+       src: url(/font/Dancing_Script/DancingScript-VariableFont_wght.ttf);
+   }
+
+   #card {
+       margin: 8%;
+       position: absolute;
+       height: auto;
+       width: 350px;
+       border-radius: 10px;
+       background-color: rgb(232, 229, 229);
+       /* background-image: url("https://image.freepik.com/free-vector/open-gift-box-with-heart-shape-confetti-burst-explosion-3d-valentines-day-romantic-gift_165143-438.jpg"); */
+       background-size: 50vh, 70vh;
+       box-shadow: 0px 0px 20px red;
+       transform: rotate(5deg);
+       top: 0px;
+       opacity: 0;
+       left: -100px;
+
+   }
+
+   #card1 {
+       margin: 8%;
+       position: absolute;
+       height: auto;
+       width: 200px;
+       border-radius: 10px;
+       background-color: rgb(232, 229, 229);
+       background-size: 50vh, 70vh;
+       box-shadow: 0px 0px 20px red;
+       transform: rotate(5deg);
+       opacity: 0;
+       top: 350px;
+       left: 70%;
+
+   }
+
+   #card2 {
+       margin: 8%;
+       position: absolute;
+       height: auto;
+       width: 200px;
+       border-radius: 10px;
+       background-size: 50vh, 70vh;
+       box-shadow: 0px 0px 20px red;
+       transform: rotate(5deg);
+       top: 0px;
+       right: 100px;
+       opacity: 0;
+
+   }
+
+   #card3 {
+       margin: 8%;
+       position: absolute;
+       height: auto;
+       width: 200px;
+       border-radius: 10px;
+       background-size: 50vh, 70vh;
+       box-shadow: 0px 0px 20px red;
+       transform: rotate(5deg);
+       top: 360px;
+       left: 10%;
+       opacity: 0;
+   }
+
+   .img {
+       width: 100%;
+       height: auto;
+   }
+
+   .honey {
+       margin: auto;
+       padding: 5%;
+       display: block;
+       border-radius: 50%;
+       box-shadow: 0 4px 8px 0 red;
+       width: 100px;
+       height: 100px;
+       object-fit: cover;
+   }
+
+   h4 {
+       text-align: center;
+       -webkit-text-fill-color: rgb(0, 1, 1);
+       -webkit-background-clip: text;
+
+       font-family: 'Allura', cursive;
+       padding: -2%;
+       font-size: 19px;
+       overflow: hidden;
+   }
+
+   .card-show {
+       opacity: 1 !important;
+       left: 0 !important;
+       transition: all 2s;
+   }
+
+   .card-show1 {
+       opacity: 1 !important;
+
+       transition: all 2s;
+   }
+
+   .card-show2 {
+       opacity: 1 !important;
+       top: 0px;
+       right: 100px;
+       transition: all 2s;
+   }
+
+   .card-show3 {
+       opacity: 1 !important;
+       top: 360px;
+       left: 10%;
+       transition: all 2s;
+   }
+
+   .hidden {
+       display: none;
+   }
+
+   .dieu-uoc {
+       position: relative;
+       margin: auto;
+       width: 400px;
+       height: 80px;
+       top: -150px;
+   }
+
+   .dieu-uoc>input {
+       width: 400px;
+       height: 40px;
+       background-color: rgb(255, 255, 255);
+       border: 0;
+       border-radius: 10px;
+       padding: 0 20px;
+   }
+
+   .dieu-uoc>.h1 {
+       font-family: newFont;
+       font-size: 45px;
+       text-align: center;
+   }
+
+   .dieu-uoc>#submit {
+       margin-top: 40px;
+       border-radius: 10px;
+       height: 40px;
+       background-color: rgb(15, 160, 13);
+       border: 0;
+       color: aliceblue;
+       margin-left: 50px;
+   }
+
+   .dieu-uoc>#cancel {
+       z-index: 1000;
+       position: relative;
+       border-radius: 10px;
+       height: 40px;
+       background-color: rgb(207, 20, 20);
+       border: 0;
+       color: aliceblue;
+       margin-left: 100px;
+   }
